@@ -36,10 +36,6 @@ def kalkulator():
                 sys.exit(1)
         logging.info("Suma wynosi %.2f"%additive)
 
-
-        logging.info("Dodaję %.2f i %.2f" % (a,b))
-        print ("Wynik to %.2f" % (a+b))
-
     elif operation == 2: #operacja odejmowania
         logging.info("Odejmuję liczby %.2f i %.2f" % (a,b))
         print ("Wynik to %.2f" % (a-b))
