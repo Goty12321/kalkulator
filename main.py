@@ -25,14 +25,37 @@ def kalkulator():
         logging.error("Nieprawidłowa wartość drugiej liczby: %s" % b)
 
     if operation == 1: #operacja dodawania
+        additive = a+b
+        sign = ""
+        while sign != "=":
+            sign = input("Podawaj liczby, wciśnij \"=\" by zsumować:")
+            try:
+                additive = additive + float(sign)
+            except ValueError:
+                logging.info("Suma wynosi %.2f"%additive)
+                sys.exit(1)
+        logging.info("Suma wynosi %.2f"%additive)
+
+
         logging.info("Dodaję %.2f i %.2f" % (a,b))
         print ("Wynik to %.2f" % (a+b))
+
     elif operation == 2: #operacja odejmowania
         logging.info("Odejmuję liczby %.2f i %.2f" % (a,b))
         print ("Wynik to %.2f" % (a-b))
+
     elif operation == 3: #operacja mnożenia
-        logging.info("Mnożę %.2f i %.2f" % (a,b))
-        print("Wynik to %.2f" % (a*b))
+        multiplying = a*b
+        sign = ""
+        while sign != "=":
+            sign = input("Podawaj liczby, wciśnij \"=\" żeby wymnożyć:")
+            try:
+                sign = float(sign)
+                multiplying *= sign
+            except ValueError:
+                logging.info("Wynik mnożenia wynosi %.2f"%multiplying)
+        print("Wynik to %.2f" % multiplying)
+
     elif operation == 4: #operacja dzielenia
         logging.info("Dzielę %.2f przez %.2f" % (a,b))
         print("Wynik to %.2f" % (a/b))
