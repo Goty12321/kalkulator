@@ -3,8 +3,9 @@ import sys
 logging.basicConfig(level=logging.DEBUG)
 
 def kalkulator():
+    operation = input("Podaj działanie, posługując się odpowiednią liczbą: 1 Dodawanie, 2 Odejmowanie, 3 Mnożenie, 4 Dzielenie:")
     try:
-        operation = int(input("Podaj działanie, posługując się odpowiednią liczbą: 1 Dodawanie, 2 Odejmowanie, 3 Mnożenie, 4 Dzielenie:"))
+        operation = int(operation)
     except ValueError:
         logging.error("Nieprawidłowa wartość argumentu działania: %s" % operation)
         sys.exit(1)
@@ -15,7 +16,7 @@ def kalkulator():
     try:
         a = float(a)
     except ValueError:
-        logging.error("Nieprawidłowa wartość pierwszej liczby: %s" %a)
+        logging.error("Nieprawidłowa wartość pierwszej liczby: %s" % a)
         sys.exit(1)
     
     b = input("Podaj wartość drugiej liczby:")
@@ -32,9 +33,9 @@ def kalkulator():
             try:
                 additive = additive + float(sign)
             except ValueError:
-                logging.info("Suma wynosi %.2f"%additive)
+                print("Suma wynosi %.2f"%additive)
                 sys.exit(1)
-        logging.info("Suma wynosi %.2f"%additive)
+        print("Suma wynosi %.2f"%additive)
 
     elif operation == 2: #operacja odejmowania
         logging.info("Odejmuję liczby %.2f i %.2f" % (a,b))
@@ -49,7 +50,8 @@ def kalkulator():
                 sign = float(sign)
                 multiplying *= sign
             except ValueError:
-                logging.info("Wynik mnożenia wynosi %.2f"%multiplying)
+                print("Wynik mnożenia wynosi %.2f"%multiplying)
+                sys.exit(1)
         print("Wynik to %.2f" % multiplying)
 
     elif operation == 4: #operacja dzielenia
